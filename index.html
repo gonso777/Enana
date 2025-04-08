@@ -2,23 +2,30 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <title>Autobiografía de Melanie Celeste</title>
     <link rel="stylesheet" href="styles.css">
+</head>
+
 
 <body>
 
     <h1>Autobiografia Melanie celeste</h1>
     <h2>Soy un alfajor mal tapado<br>
         parezco una tutuca</h2>
-    <img src="images/enana.jpg" width="1200" height="200">
-    <br><br><br>
-    <label>Puntuar enana del 1 al 10</label>
-    <input placeholder="Solo puntajes arriba de 9" /><br>
-    <input type="button" value="Enviar puntaje a la enana" id="boton-enana" />
-    <br><br><br><br>
-    <img src="images/enana2.jpg" width="1200" height="200">
+    <div class="imagenes">
+        <h2>Galeria de fotos de la maldita enana</h2>
+        <div class="imagenes-lista">
+            <img src="images/enana.jpg" class="imagen">
+            <img src="images/enana2.jpg" class="imagen">
+        </div>
+    </div>
     <h3>Videos miticos de la enana malaleche</h3>
     <video src="images/querescoca.mp4" controls></video>
 
+    <label>Puntuar enana del 1 al 10</label>
+    <input placeholder="Solo puntajes arriba de 9" /><br>
+    <input type="button" value="Enviar puntaje a la enana" id="boton-enana" />
 
 
     <footer class="footer">
