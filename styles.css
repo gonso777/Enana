@@ -26,6 +26,13 @@ img {
     box-shadow: 2px 2px 10px gray;
 }
 
+.footer {
+    text-align: center;
+    color: black;
+}
+
+
+
 input::placeholder {
     color: rgba(0, 0, 0, 0.4);
     font-style: italic;
