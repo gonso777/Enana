@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Autobiografía de Melanie Celeste</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 
@@ -23,10 +24,20 @@
     <h3>Videos miticos de la enana malaleche</h3>
     <video src="images/querescoca.mp4" controls></video>
 
-    <label>Puntuar enana del 1 al 10</label>
-    <input placeholder="Solo puntajes arriba de 9" /><br>
-    <input type="button" value="Enviar puntaje a la enana" id="boton-enana" />
+    <div class="contact" id="contact" data-aos="flip-left" data-aos-duration="1000">
+        <h1>Puntuación</h1>
+        <p>Calificá a la enana hot para una estadística científica</p>
 
+        <form action="https://formspree.io/f/mkgjkjgg" method="POST" class="contact-form">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+            <label for="message">Puntaje del 1 al 10</label>
+            <input type="number" id="message" name="message" min="1" max="10" placeholder="Solo si es 9 o 10" required>
+
+            <button type="submit"><span>Enviar puntaje a la enana</span></button>
+        </form>
+    </div>
 
     <footer class="footer">
         <p>© 2025 Gonso</p>
