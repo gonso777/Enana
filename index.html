@@ -5,58 +5,108 @@
     <meta charset="UTF-8">
     <title>Autobiografía de Melanie Celeste</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="images/favicon.png"> <!-- Asegurate de tener esto -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
+    <div id="loader">
+        <div class="loader-text">Cargando a la enana...</div>
+    </div>
 
-    <nav class="navbar">
-        <a href="#top">Inicio</a>
-        <a href="#galeria">Galería</a>
-        <a href="#videos">Videos</a>
-        <a href="#contact">Puntuación</a>
-    </nav>
+    <header class="navbar">
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#galeria">Galería</a>
+            <a href="#videos">Videos</a>
+            <a href="#contact">Puntuar</a>
+            <button id="darkToggle">🌓</button>
+        </nav>
+    </header>
 
-    <div id="top"></div>
+    <main id="inicio">
+        <h1 data-aos="fade-down">Autobiografía Melanie Celeste</h1>
+        <h2 data-aos="fade-up">Soy un alfajor mal tapado<br>parezco una tutuca</h2>
 
-    <h1 data-aos="fade-down">Autobiografía Melanie Celeste</h1>
-    <h2 data-aos="fade-up">Soy un alfajor mal tapado<br>parezco una tutuca</h2>
+        <section class="imagenes" id="galeria" data-aos="zoom-in">
+            <h2>Galería de fotos de la maldita enana</h2>
+            <div class="imagenes-lista">
+                <img src="images/enana.jpg" class="imagen" alt="enana1">
+                <img src="images/enana2.jpg" class="imagen" alt="enana2">
+            </div>
+        </section>
 
-    <div class="imagenes" id="galeria" data-aos="zoom-in-up">
-        <h2>Galería de fotos de la maldita enana</h2>
-        <div class="imagenes-lista">
-            <img src="images/enana.jpg" class="imagen">
-            <img src="images/enana2.jpg" class="imagen">
+        <section id="videos" data-aos="fade-right">
+            <h3>Videos míticos de la enana malaleche</h3>
+            <video src="images/querescoca.mp4" controls></video>
+        </section>
+
+        <section class="stats" data-aos="fade-up">
+            <p class="stat">💖 Puntajes recibidos: <span id="votes">+200</span></p>
+            <p class="stat">⭐ Promedio: <span id="average">9.8</span></p>
+            <p class="stat">🧍‍♀️ Enanas totales: 1</p>
+        </section>
+
+        <div class="contact" id="contact" data-aos="flip-left">
+            <h1>Puntuación</h1>
+            <p>Calificá a la enana hot para una estadística científica</p>
+            <form action="https://formspree.io/f/mkgjkjgg" method="POST" class="contact-form">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+                <label for="message">Puntaje del 1 al 10</label>
+                <input type="number" id="message" name="message" min="1" max="10" placeholder="Solo si es 9 o 10"
+                    required>
+
+                <button type="submit"><span>Enviar puntaje a la enana</span></button>
+            </form>
         </div>
-    </div>
 
-    <h3 id="videos" data-aos="fade-right">Videos míticos de la enana malaleche</h3>
-    <video src="images/querescoca.mp4" controls data-aos="zoom-in"></video>
-
-    <div class="contact" id="contact" data-aos="flip-left">
-        <h1>Puntuación</h1>
-        <p>Calificá a la enana hot para una estadística científica</p>
-
-        <form action="https://formspree.io/f/mkgjkjgg" method="POST" class="contact-form">
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-
-            <label for="message">Puntaje del 1 al 10</label>
-            <input type="number" id="message" name="message" min="1" max="10" placeholder="Solo si es 9 o 10" required>
-
-            <button type="submit"><span>Enviar puntaje a la enana</span></button>
-        </form>
-    </div>
+        <button id="scrollTopBtn">⬆️</button>
+    </main>
 
     <footer class="footer">
         <p>© 2025 Gonso</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <audio id="meowSound" src="images/meow.mp3" preload="auto"></audio>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+
+        window.addEventListener("load", () => {
+            document.getElementById("loader").style.display = "none";
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dark mode
+        const toggle = document.getElementById("darkToggle");
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+
+        // Scroll to top button
+        const scrollBtn = document.getElementById("scrollTopBtn");
+        scrollBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Audio on submit
+        const form = document.querySelector(".contact-form");
+        form.addEventListener("submit", () => {
+            document.getElementById("meowSound").play();
+        });
     </script>
 </body>
 
